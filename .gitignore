@@ -1,0 +1,14 @@
+# Rust
+/target/
+**/*.rs.bk
+
+# Node
+node_modules/
+.npm/
+
+# Logs
+*.log
+
+# IDE
+.idea/
+.vscode/
