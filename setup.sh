@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # LittleFaith development environment setup
+# Keep this script updated when new tools are needed.
 set -e
 
 # Ensure the script works from repo root
