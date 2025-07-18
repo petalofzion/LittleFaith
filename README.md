@@ -59,6 +59,11 @@ Rust dynamic-load or WASI. Examples: AI-chat assistant, Qur'an module, map viewe
 * **Web**: Same React code in Vite → deploy as PWA; point to WASM-compiled `littlefaith-core` (via `wasm-pack`).
 * **Mobile**: Capacitor wrapper later; or Flutter rewrite if full native is desired.
 
+## Development Setup
+
+Run `./setup.sh` to install Rust, Node.js, pnpm and the Tauri CLI. The script only installs missing tools.
+After running it, you can build the app with `cargo tauri dev` once the source code is available.
+
 ---
 
 LittleFaith aims for minimal footprint today with cathedral-level extensibility tomorrow.
