@@ -1,21 +1,17 @@
 ## Type
 
-- [ ] chore
-- [ ] feat
-- [ ] fix
-- [ ] docs
-- [ ] refactor
+- [ ] chore [ ] feat [ ] fix [ ] docs [ ] refactor
 
 ## Summary
 
--
+(what changed & why)
 
 ## Testing
 
-- [ ] `just test`
+(commands + evidence)
 
 ## Checklist
 
-- [ ] CI passes
+- [ ] CI green
 - [ ] Updated docs
-- [ ] Added to CHANGELOG
+- [ ] CHANGELOG entry

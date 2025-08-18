@@ -4,8 +4,6 @@ LittleFaith is a compact library engine and Bible software that blends desktop-f
 
 ## Tech-Stack Quick-Glance
 
-("Desktop-first ❤️, web-friendly ✨, MIT-clean ✓")
-
 ### 1. Runtime & UI
 
 | Layer     | Choice                                 | Why it fits                                    |
@@ -46,7 +44,7 @@ Rust dynamic-load or WASI. Examples: AI-chat assistant, Qur'an module, map viewe
 ### 5. Build & CI
 
 - **Cargo** workspaces → `cargo tauri build`
-- **Vitest + Jest** for UI tests
+- **Vitest** for UI tests
 - GitHub Actions: lint, unit-tests, cross-compile (Win/macOS/Linux), notarize Mac.
 
 ### 6. Release Footprint

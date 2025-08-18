@@ -7,6 +7,8 @@ _Desktop-first, Rust-powered, React-cute (Tailwind + shadcn/ui)._
 - [x] 💖 Add `LICENSE` (MIT) at repo root.
 - [x] 🏷️ Configure **Cargo workspaces** + **pnpm** monorepo (`/core`, `/frontend`).
 - [x] 🤖 Prettier + ESLint + Rustfmt + Clippy CI gates.
+- [x] 📌 Pin Node and Rust toolchains for reproducible builds.
+- [x] 🐚 Add ShellCheck for `setup.sh`.
 - [ ] 🔖 Define semantic versioning & branch naming (e.g. `main`, `feat/*`).
 - [ ] 🧪 Set up **Vitest** (+ jsdom) for unit / component tests.
 - [ ] 🔍 (Optional) Configure **Jest + React-Testing-Library** for UI snapshot / smoke tests.

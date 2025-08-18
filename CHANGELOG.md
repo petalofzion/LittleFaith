@@ -10,3 +10,6 @@ All notable changes to this project will be documented in this file.
 - Clarify automation workflow in AGENTS and CONTRIBUTING.
 - Harden CI with conditional test runs and pnpm setup.
 - Expand PR template and developer docs.
+- Switch to modern CI actions with pnpm cache and ShellCheck.
+- Guard Justfile tasks and seed smoke tests.
+- Pin Node and Rust toolchains; tidy README and CONTRIBUTING.

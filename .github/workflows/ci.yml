@@ -1,10 +1,7 @@
 name: CI
-
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  push: { branches: [main] }
+  pull_request: { branches: [main] }
 
 jobs:
   build:
@@ -12,29 +9,34 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
 
       - uses: pnpm/action-setup@v4
         with:
           version: 9
 
+      - uses: dtolnay/rust-toolchain@stable
+
       - name: Install just
         run: sudo apt-get update && sudo apt-get install -y just
 
-      - name: Detect projects
-        id: detect
+      - name: ShellCheck
+        uses: ludeeus/action-shellcheck@v2
+        with:
+          scandir: .
+
+      - name: Rust checks (if core exists)
+        if: ${{ hashFiles('core/Cargo.toml') != '' }}
         run: |
-          if [ -f core/Cargo.toml ]; then echo "core=true" >> "$GITHUB_OUTPUT"; fi
-          if [ -f frontend/package.json ]; then echo "frontend=true" >> "$GITHUB_OUTPUT"; fi
+          cargo fmt --all -- --check
+          cargo clippy --all-targets -- -D warnings
+          cargo test --manifest-path core/Cargo.toml
 
-      - name: Install frontend deps
-        if: steps.detect.outputs.frontend == 'true'
-        run: pnpm -C frontend install
-
-      - name: Rust tests
-        if: steps.detect.outputs.core == 'true'
-        run: cargo test --manifest-path core/Cargo.toml
-
-      - name: Frontend tests
-        if: steps.detect.outputs.frontend == 'true'
-        run: pnpm -C frontend test
+      - name: Frontend checks (if package.json exists)
+        if: ${{ hashFiles('frontend/package.json') != '' }}
+        run: |
+          pnpm -C frontend install
+          pnpm -C frontend test --if-present
