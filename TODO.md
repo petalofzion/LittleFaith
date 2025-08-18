@@ -41,7 +41,7 @@ _Desktop-first, Rust-powered, React-cute (Tailwind + shadcn/ui)._
 - [ ] 📦 Draft `tauri.conf.json` for **auto-update** channel “alpha”.
 - [ ] ⌚ Nightly workflow: compile latest modules, run DB migrations, publish artifacts.
 - [ ] 🌧️ Proof-of-concept **Dropbox sync** task (Rust crate + OAuth).
-- [ ] 🔐 Encrypt vault sync with **AES-CBC** before upload.
+- [ ] 🔐 Encrypt vault sync with **AEAD (e.g., XChaCha20-Poly1305)** before upload.
 
 ## 5️⃣ AI Helper Scripts
 

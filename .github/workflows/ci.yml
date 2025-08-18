@@ -11,15 +11,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: pnpm/action-setup@v4
         with:
-          node-version: 20
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-      - run: npm install -g pnpm
-      - name: Run Justfile tests
+          version: 9
+
+      - name: Install just
+        run: sudo apt-get update && sudo apt-get install -y just
+
+      - name: Detect projects
+        id: detect
         run: |
-          sudo apt-get update && sudo apt-get install -y just
-          just test
+          if [ -f core/Cargo.toml ]; then echo "core=true" >> "$GITHUB_OUTPUT"; fi
+          if [ -f frontend/package.json ]; then echo "frontend=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Install frontend deps
+        if: steps.detect.outputs.frontend == 'true'
+        run: pnpm -C frontend install
+
+      - name: Rust tests
+        if: steps.detect.outputs.core == 'true'
+        run: cargo test --manifest-path core/Cargo.toml
+
+      - name: Frontend tests
+        if: steps.detect.outputs.frontend == 'true'
+        run: pnpm -C frontend test

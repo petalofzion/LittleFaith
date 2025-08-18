@@ -6,13 +6,16 @@ setup:
     ./setup.sh
 
 fmt:
-    cargo fmt --manifest-path core/Cargo.toml
-    npm run fmt --prefix frontend
+    if [ -f core/Cargo.toml ]; then cargo fmt --manifest-path core/Cargo.toml; fi
+    if [ -f frontend/package.json ]; then pnpm -C frontend fmt; fi
 
 lint:
-    cargo clippy --manifest-path core/Cargo.toml --all-targets -- -D warnings
-    npm run lint --prefix frontend
+    if [ -f core/Cargo.toml ]; then cargo clippy --manifest-path core/Cargo.toml --all-targets -- -D warnings; fi
+    if [ -f frontend/package.json ]; then pnpm -C frontend lint; fi
 
 test:
-    cargo test --manifest-path core/Cargo.toml
-    npm test --prefix frontend
+    if [ -f core/Cargo.toml ]; then cargo test --manifest-path core/Cargo.toml; fi
+    if [ -f frontend/package.json ]; then pnpm -C frontend test; fi
+
+pre-commit:
+    pre-commit run --all-files

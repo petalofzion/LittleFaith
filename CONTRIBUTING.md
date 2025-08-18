@@ -5,9 +5,10 @@ Thank you for considering contributing to LittleFaith!
 ## Development Setup
 
 1. Run `just setup` to install tools.
-2. Clone the repository and install JavaScript dependencies with `npm install` if a `package.json` exists.
-3. Use `just fmt` and `just test` before submitting changes.
-4. Build the desktop app using `cargo tauri dev`.
+2. Clone the repository.
+3. Install JavaScript dependencies with `pnpm install` if a `package.json` exists.
+4. Use `just fmt` and `just test` before submitting changes.
+5. Build the desktop app using `cargo tauri dev`.
 
 If you add new dependencies or tools, update `setup.sh` so others can reproduce the environment.
 
@@ -22,7 +23,7 @@ If you add new dependencies or tools, update `setup.sh` so others can reproduce 
 
 - Keep PRs focused and describe your changes clearly.
 - For code changes, add tests where possible.
-- Ensure `cargo test` and `npm test` pass before submitting.
+- Ensure `cargo test` and `pnpm test` pass before submitting.
 
 ## Communication
 

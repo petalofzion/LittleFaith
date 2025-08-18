@@ -8,20 +8,20 @@ LittleFaith is a compact library engine and Bible software that blends desktop-f
 
 ### 1. Runtime & UI
 
-| Layer         | Choice                                                 | Why it fits                                                                             |
-| ------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------- |
-| **Container** | **Tauri 2** (Rust core + system WebView)               | Tiny binaries (8‑15 MB), 50‑70 % less RAM than Electron, MIT-friendly, easy auto‑update |
-| **Frontend**  | **React 19** + **Vite** + **Radix UI** + **shadcn/ui** | Rich component ecosystem, hot‑reload, SSR/CSR toggles for future web build              |
-| **Styling**   | Tailwind CSS + shadcn/ui components                    | Rapid kawaii theming, dark/light built‑in                                               |
-| **State**     | React Query + Zustand                                  | Decoupled async fetch + lightweight global state                                        |
+| Layer     | Choice                                 | Why it fits                                    |
+| --------- | -------------------------------------- | ---------------------------------------------- |
+| Container | Tauri 2 (Rust core + system WebView)   | Tiny binaries, low RAM use, permissive license |
+| Frontend  | React 19 + Vite + Radix UI + shadcn/ui | Rich components, hot reload, SSR/CSR ready     |
+| Styling   | Tailwind CSS + shadcn/ui components    | Quick theming with dark/light support          |
+| State     | React Query + Zustand                  | Lightweight async fetch and global state       |
 
 ### 2. Core Logic
 
-| Domain             | Crate / Lib                                   | Role                                                         |
-| ------------------ | --------------------------------------------- | ------------------------------------------------------------ |
-| Text Engine        | **Rust** crate `littlefaith-core`             | OSIS → SQLite compiler, verse lookup, search API             |
-| Search             | SQLite FTS5 (desktop) → switchable to Tantivy | Millisecond full-text; plug-in swap later for huge libraries |
-| Data Sync (opt-in) | `littlefaith-sync` (Rust) w/ Dropbox Web‑API  | JSON-delta + AES-CBC encryption of user vault                |
+| Domain             | Lib / Crate                      | Role                                             |
+| ------------------ | -------------------------------- | ------------------------------------------------ |
+| Text engine        | Rust crate `littlefaith-core`    | OSIS → SQLite compiler, verse lookup, search API |
+| Search             | SQLite FTS5 → Tantivy (later)    | Millisecond full-text search, pluggable backend  |
+| Data sync (opt-in) | `littlefaith-sync` + Dropbox API | JSON-delta with AEAD-encrypted user vault        |
 
 ### 3. Storage Layout
 
