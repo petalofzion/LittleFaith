@@ -13,3 +13,4 @@ All notable changes to this project will be documented in this file.
 - Switch to modern CI actions with pnpm cache and ShellCheck.
 - Guard Justfile tasks and seed smoke tests.
 - Pin Node and Rust toolchains; tidy README and CONTRIBUTING.
+- Fix ShellCheck action version to ensure workflow runs.
