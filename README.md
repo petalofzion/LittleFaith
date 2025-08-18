@@ -3,24 +3,25 @@
 LittleFaith is a compact library engine and Bible software that blends desktop-first usability with web-friendly technologies.
 
 ## Tech-Stack Quick-Glance
+
 ("Desktop-first ❤️, web-friendly ✨, MIT-clean ✓")
 
 ### 1. Runtime & UI
 
-| Layer         | Choice                                                        | Why it fits                                                                             |
-| ------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| **Container** | **Tauri 2** (Rust core + system WebView)                     | Tiny binaries (8‑15 MB), 50‑70 % less RAM than Electron, MIT-friendly, easy auto‑update |
-| **Frontend**  | **React 19** + **Vite** + **Radix UI** + **shadcn/ui**                       | Rich component ecosystem, hot‑reload, SSR/CSR toggles for future web build              |
-| **Styling**   | Tailwind CSS + shadcn/ui components                                  | Rapid kawaii theming, dark/light built‑in                                               |
-| **State**     | React Query + Zustand                                         | Decoupled async fetch + lightweight global state                                        |
+| Layer         | Choice                                                 | Why it fits                                                                             |
+| ------------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------- |
+| **Container** | **Tauri 2** (Rust core + system WebView)               | Tiny binaries (8‑15 MB), 50‑70 % less RAM than Electron, MIT-friendly, easy auto‑update |
+| **Frontend**  | **React 19** + **Vite** + **Radix UI** + **shadcn/ui** | Rich component ecosystem, hot‑reload, SSR/CSR toggles for future web build              |
+| **Styling**   | Tailwind CSS + shadcn/ui components                    | Rapid kawaii theming, dark/light built‑in                                               |
+| **State**     | React Query + Zustand                                  | Decoupled async fetch + lightweight global state                                        |
 
 ### 2. Core Logic
 
-| Domain             | Crate / Lib                        | Role                                                         |
-| ------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Text Engine        | **Rust** crate `littlefaith-core`  | OSIS → SQLite compiler, verse lookup, search API             |
+| Domain             | Crate / Lib                                   | Role                                                         |
+| ------------------ | --------------------------------------------- | ------------------------------------------------------------ |
+| Text Engine        | **Rust** crate `littlefaith-core`             | OSIS → SQLite compiler, verse lookup, search API             |
 | Search             | SQLite FTS5 (desktop) → switchable to Tantivy | Millisecond full-text; plug-in swap later for huge libraries |
-| Data Sync (opt-in) | `littlefaith-sync` (Rust) w/ Dropbox Web‑API | JSON-delta + AES-CBC encryption of user vault                |
+| Data Sync (opt-in) | `littlefaith-sync` (Rust) w/ Dropbox Web‑API  | JSON-delta + AES-CBC encryption of user vault                |
 
 ### 3. Storage Layout
 
@@ -44,20 +45,26 @@ Rust dynamic-load or WASI. Examples: AI-chat assistant, Qur'an module, map viewe
 
 ### 5. Build & CI
 
-* **Cargo** workspaces → `cargo tauri build`
-* **Vitest + Jest** for UI tests
-* GitHub Actions: lint, unit-tests, cross-compile (Win/macOS/Linux), notarize Mac.
+- **Cargo** workspaces → `cargo tauri build`
+- **Vitest + Jest** for UI tests
+- GitHub Actions: lint, unit-tests, cross-compile (Win/macOS/Linux), notarize Mac.
 
 ### 6. Release Footprint
 
-* **Windows**: `LittleFaith-Setup-x64.exe` ≈ 12 MB
-* **macOS**: `.dmg` signed, universal 14 MB
-* **Linux**: `.AppImage` 13 MB
+- **Windows**: `LittleFaith-Setup-x64.exe` ≈ 12 MB
+- **macOS**: `.dmg` signed, universal 14 MB
+- **Linux**: `.AppImage` 13 MB
 
 ### 7. Road to Web & Mobile
 
-* **Web**: Same React code in Vite → deploy as PWA; point to WASM-compiled `littlefaith-core` (via `wasm-pack`).
-* **Mobile**: Capacitor wrapper later; or Flutter rewrite if full native is desired.
+- **Web**: Same React code in Vite → deploy as PWA; point to WASM-compiled `littlefaith-core` (via `wasm-pack`).
+- **Mobile**: Capacitor wrapper later; or Flutter rewrite if full native is desired.
+
+## Quick Start
+
+1. `just setup`
+2. `just fmt`
+3. `just test`
 
 ## Development Setup
 
