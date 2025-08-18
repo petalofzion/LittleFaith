@@ -14,3 +14,4 @@ All notable changes to this project will be documented in this file.
 - Guard Justfile tasks and seed smoke tests.
 - Pin Node and Rust toolchains; tidy README and CONTRIBUTING.
 - Fix ShellCheck action version to ensure workflow runs.
+- Install pnpm before Node setup to restore CI caching.
