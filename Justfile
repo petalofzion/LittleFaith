@@ -7,15 +7,15 @@ setup:
 
 fmt:
         @if [ -f core/Cargo.toml ]; then cargo fmt --manifest-path core/Cargo.toml; fi
-        @pnpm -C frontend --if-present fmt
+       @pnpm --if-present -C frontend fmt
 
 lint:
         @if [ -f core/Cargo.toml ]; then cargo clippy --manifest-path core/Cargo.toml --all-targets -- -D warnings; fi
-        @pnpm -C frontend --if-present lint
+       @pnpm --if-present -C frontend lint
 
 test:
         @if [ -f core/Cargo.toml ]; then cargo test --manifest-path core/Cargo.toml; fi
-        @pnpm -C frontend --if-present test
+       @pnpm --if-present -C frontend test
 
 pre-commit:
 	pre-commit run --all-files

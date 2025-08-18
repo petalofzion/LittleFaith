@@ -38,6 +38,6 @@ jobs:
       - name: Frontend checks (if package.json exists)
         if: ${{ hashFiles('frontend/package.json') != '' }}
         run: |
-          pnpm -C frontend install
-          pnpm -C frontend --if-present lint
-          pnpm -C frontend --if-present test
+          pnpm --dir frontend install
+          pnpm --if-present --dir frontend lint
+          pnpm --if-present --dir frontend test
