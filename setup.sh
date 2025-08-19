@@ -10,6 +10,7 @@ install_rust() {
     if ! command -v cargo >/dev/null 2>&1; then
         echo "Installing Rust toolchain..."
         curl https://sh.rustup.rs -sSf | sh -s -- -y
+        # shellcheck source=/dev/null
         source "$HOME/.cargo/env"
     else
         echo "Rust already installed: $(rustc --version)"
@@ -21,7 +22,8 @@ install_node() {
         echo "Installing Node via nvm..."
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
         export NVM_DIR="$HOME/.nvm"
-        [ -s "$NVM_DIR/nvm.sh" ] && \ . "$NVM_DIR/nvm.sh"
+        # shellcheck source=/dev/null
+        [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
         nvm install --lts
     else
         echo "Node already installed: $(node --version)"

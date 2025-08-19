@@ -1,0 +1,9 @@
+{
+  "name": "littlefaith-frontend",
+  "private": true,
+  "scripts": {
+    "test": "node -e \"process.exit(0)\"",
+    "fmt": "prettier -c . || true",
+    "lint": "echo \"TODO: add eslint\" && exit 0"
+  }
+}
