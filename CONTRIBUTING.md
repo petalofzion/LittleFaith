@@ -6,7 +6,7 @@ Thank you for considering contributing to LittleFaith!
 
 1. Clone the repository.
 2. Run `just setup` to install tools.
-3. If a `package.json` exists, install dependencies with `pnpm install`.
+3. If a `package.json` exists, install dependencies with `bun install` (Bun is the JS toolchain).
 4. Use `just fmt` and `just test` before submitting changes.
 5. Build the desktop app using `cargo tauri dev`.
 
@@ -23,7 +23,7 @@ If you add new dependencies or tools, update `setup.sh` so others can reproduce 
 
 - Keep PRs focused and describe your changes clearly.
 - For code changes, add tests where possible.
-- Ensure `cargo test` and `pnpm test` pass before submitting.
+- Ensure `cargo test` and `bun test` pass before submitting.
 
 ## Communication
 

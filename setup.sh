@@ -17,25 +17,15 @@ install_rust() {
     fi
 }
 
-install_node() {
-    if ! command -v node >/dev/null 2>&1; then
-        echo "Installing Node via nvm..."
-        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-        export NVM_DIR="$HOME/.nvm"
-        # shellcheck source=/dev/null
-        [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-        nvm install --lts
-    else
-        echo "Node already installed: $(node --version)"
-    fi
-}
 
-install_pnpm() {
-    if ! command -v pnpm >/dev/null 2>&1; then
-        echo "Installing pnpm..."
-        npm install -g pnpm
+install_bun() {
+    if ! command -v bun >/dev/null 2>&1; then
+        echo "Installing Bun..."
+        curl -fsSL https://bun.sh/install | bash
+        export BUN_INSTALL="$HOME/.bun"
+        export PATH="$BUN_INSTALL/bin:$PATH"
     else
-        echo "pnpm already installed: $(pnpm --version)"
+        echo "Bun already installed: $(bun --version)"
     fi
 }
 
@@ -49,8 +39,7 @@ install_tauri() {
 }
 
 install_rust
-install_node
-install_pnpm
+install_bun
 install_tauri
 
 echo "Setup complete."

@@ -8,15 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - uses: oven-sh/setup-bun@v1
         with:
-          version: 9
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: "pnpm"
-          cache-dependency-path: pnpm-lock.yaml
+          bun-version: "latest"
 
       - uses: dtolnay/rust-toolchain@stable
 
@@ -38,6 +32,6 @@ jobs:
       - name: Frontend checks (if package.json exists)
         if: ${{ hashFiles('frontend/package.json') != '' }}
         run: |
-          pnpm --dir frontend install --frozen-lockfile
-          pnpm --if-present --dir frontend lint
-          pnpm --if-present --dir frontend test
+          bun install --cwd frontend
+          bun run --cwd frontend lint
+          bun run --cwd frontend test

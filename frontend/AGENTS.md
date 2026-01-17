@@ -1,11 +1,11 @@
 # Frontend Guidelines
 
-This package uses Node tooling.
+This package uses Bun tooling.
 
 ## Programmatic Checks
 
-- Run `npm test`.
-- Run `npm run lint`.
+- Run `bun test`.
+- Run `bun run lint`.
 
 ## Style
 

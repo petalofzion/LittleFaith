@@ -1,17 +1,19 @@
 # LittleFaith
 
-LittleFaith is a compact library engine and Bible software that blends desktop-first usability with web-friendly technologies.
+LittleFaith is a compact library engine and Bible software that blends desktop-first usability with web-friendly
+technologies. The plan is cross-platform now (desktop + web) with a path to mobile later.
 
 ## Tech-Stack Quick-Glance
 
-### 1. Runtime & UI
+### 1. Runtime & UI (Current Plan)
 
 | Layer     | Choice                                 | Why it fits                                    |
 | --------- | -------------------------------------- | ---------------------------------------------- |
 | Container | Tauri 2 (Rust core + system WebView)   | Tiny binaries, low RAM use, permissive license |
-| Frontend  | React 19 + Vite + Radix UI + shadcn/ui | Rich components, hot reload, SSR/CSR ready     |
-| Styling   | Tailwind CSS + shadcn/ui components    | Quick theming with dark/light support          |
+| Frontend  | React 19 + Vite + DaisyUI              | Rich components, fast iteration, deep ecosystem |
+| Styling   | Tailwind CSS + DaisyUI                 | Quick theming with dark/light support          |
 | State     | React Query + Zustand                  | Lightweight async fetch and global state       |
+| Tooling   | Bun                                    | JS installs and scripts                         |
 
 ### 2. Core Logic
 
@@ -56,7 +58,7 @@ Rust dynamic-load or WASI. Examples: AI-chat assistant, Qur'an module, map viewe
 ### 7. Road to Web & Mobile
 
 - **Web**: Same React code in Vite → deploy as PWA; point to WASM-compiled `littlefaith-core` (via `wasm-pack`).
-- **Mobile**: Capacitor wrapper later; or Flutter rewrite if full native is desired.
+- **Mobile**: Capacitor wrapper later for the same UI; only consider a rewrite if device-native UX is required.
 
 ## Quick Start
 
@@ -64,9 +66,11 @@ Rust dynamic-load or WASI. Examples: AI-chat assistant, Qur'an module, map viewe
 2. `just fmt`
 3. `just test`
 
+Bun is the JavaScript toolchain for installing frontend dependencies and running scripts.
+
 ## Development Setup
 
-Run `./setup.sh` to install Rust, Node.js, pnpm and the Tauri CLI. The script only installs missing tools.
+Run `./setup.sh` to install Rust, Bun and the Tauri CLI. The script only installs missing tools.
 After running it, you can build the app with `cargo tauri dev` once the source code is available.
 
 ---

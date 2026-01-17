@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Manrope", "Noto Sans", sans-serif;
+  --ui-font: "Manrope", "Noto Sans", sans-serif;
+  --reader-font: "Source Serif 4", "Noto Serif", serif;
+  --reader-size: 1.05rem;
+  --reader-line-height: 1.7;
+  --reader-measure: 68ch;
+}
+
+:root[data-theme="littlefaith-light"] {
+  color-scheme: light;
+  --color-base-100: #fcfbf8;
+  --color-base-200: #f5f2ea;
+  --color-base-300: #ede8dd;
+  --color-base-content: #0b0f14;
+  --color-primary: #f6c543;
+  --color-primary-content: #0b0f14;
+  --color-secondary: #e8c36e;
+  --color-secondary-content: #0b0f14;
+  --color-accent: #a16207;
+  --color-accent-content: #ffffff;
+  --color-neutral: #111827;
+  --color-neutral-content: #f8fafc;
+  --color-info: #2563eb;
+  --color-info-content: #f8fafc;
+  --color-success: #16a34a;
+  --color-success-content: #f8fafc;
+  --color-warning: #f59e0b;
+  --color-warning-content: #0b0f14;
+  --color-error: #dc2626;
+  --color-error-content: #f8fafc;
+  --radius-selector: 0.75rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+:root[data-theme="littlefaith-dark"] {
+  color-scheme: dark;
+  --color-base-100: #0b0f14;
+  --color-base-200: #111827;
+  --color-base-300: #1f2937;
+  --color-base-content: #f8fafc;
+  --color-primary: #f6c543;
+  --color-primary-content: #0b0f14;
+  --color-secondary: #e8c36e;
+  --color-secondary-content: #0b0f14;
+  --color-accent: #f6c543;
+  --color-accent-content: #0b0f14;
+  --color-neutral: #0f172a;
+  --color-neutral-content: #f8fafc;
+  --color-info: #60a5fa;
+  --color-info-content: #0b0f14;
+  --color-success: #22c55e;
+  --color-success-content: #0b0f14;
+  --color-warning: #f59e0b;
+  --color-warning-content: #0b0f14;
+  --color-error: #f87171;
+  --color-error-content: #0b0f14;
+  --radius-selector: 0.75rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+:root[data-text-size="small"] {
+  --reader-size: 0.98rem;
+  --reader-line-height: 1.65;
+}
+
+:root[data-text-size="comfortable"] {
+  --reader-size: 1.05rem;
+  --reader-line-height: 1.7;
+}
+
+:root[data-text-size="large"] {
+  --reader-size: 1.2rem;
+  --reader-line-height: 1.8;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--ui-font);
+}
+
+#root {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.reader-text {
+  font-family: var(--reader-font);
+  font-size: var(--reader-size);
+  line-height: var(--reader-line-height);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fade-in 0.35s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    animation: none;
+  }
+}

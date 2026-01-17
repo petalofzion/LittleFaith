@@ -1,0 +1,16 @@
+{
+  "books": [
+    {
+      "name": "Genesis",
+      "chapters": [
+        {
+          "chapter": 1,
+          "verses": [
+            { "verse": 1, "text": "In the beginning God created the heaven and the earth." },
+            { "verse": 2, "text": "And the earth was without form, and void." }
+          ]
+        }
+      ]
+    }
+  ]
+}

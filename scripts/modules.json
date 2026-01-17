@@ -1,0 +1,32 @@
+{
+  "modules": [
+    {
+      "id": "drc",
+      "name": "Douay-Rheims (Challoner)",
+      "language": "en",
+      "versification": "Catholic",
+      "canon": "catholic",
+      "license": "Public Domain",
+      "source": "https://raw.githubusercontent.com/scrollmapper/bible_databases/master/sources/en/DRC/DRC.json",
+      "sha256": "5efaee5cad7f59836723bf6628f282619fa49ae963750940f9ccf39d2ad60aa4",
+      "metadata": {
+        "publisher": "scrollmapper/bible_databases",
+        "source_format": "scrollmapper-json"
+      }
+    },
+    {
+      "id": "vulgate",
+      "name": "Vulgate",
+      "language": "la",
+      "versification": "Vulgate",
+      "canon": "catholic",
+      "license": "Public Domain",
+      "source": "https://raw.githubusercontent.com/scrollmapper/bible_databases/master/sources/la/Vulgate/Vulgate.json",
+      "sha256": "3f333fb42f3ad40b1b0eb0a91026dbf8855fbe3f27a51d0b05861cc721ebf3a3",
+      "metadata": {
+        "publisher": "scrollmapper/bible_databases",
+        "source_format": "scrollmapper-json"
+      }
+    }
+  ]
+}
